@@ -2,9 +2,11 @@
   "name": "scatter-position",
   "version": "1.0.0",
   "description": "Script for generating non overlapping optionally guttered positions",
-  "main": "index.js",
+  "main": "src/lib.js",
   "scripts": {
-
+    "watch": "brunch watch",
+    "build": "brunch build --production",
+    "test": "ava ./tests/"
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,15 @@
   "bugs": {
     "url": "https://github.com/LiamMartens/scatter-position/issues"
   },
-  "homepage": "https://github.com/LiamMartens/scatter-position#readme"
+  "homepage": "https://github.com/LiamMartens/scatter-position#readme",
+  "dependencies": {
+    "seedrandom": "^2.4.3"
+  },
+  "devDependencies": {
+    "ava": "^0.24.0",
+    "babel-brunch": "^6.1.1",
+    "babel-preset-env": "^1.6.1",
+    "brunch": "^2.10.12",
+    "uglify-js-brunch": "^2.10.0"
+  }
 }
