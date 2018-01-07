@@ -2,9 +2,9 @@
 Script for generating non overlapping optionally guttered positions
 
 ### Installation
-Install using npm
+Install using npm  
 `npm install --save-dev scatter-position`
-or include in html
+or include in html  
 `<script src="scatter-position.js"></script>`
 
 ### Usage
