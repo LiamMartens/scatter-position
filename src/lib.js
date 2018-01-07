@@ -37,7 +37,7 @@ class Block {
     constructor(x, y, width, height, fromCenter) {
         this.position = new Pos(x, y);
         this.size = new Bounds(width, height);
-        this.fromCenter = fromCenter==undefined ? true : false;
+        this.fromCenter = fromCenter==undefined ? true : fromCenter;
     }
 
     /**
@@ -51,18 +51,19 @@ class Block {
         const pos2 = block.position;
         const size1 = this.size;
         const size2 = block.size;
+        gutter = gutter==undefined ? 0 : gutter;
         if(this.fromCenter) {
-            if(pos1.x>=pos2.x-(size1.width/2)-(size2.width/2)-gutter &&
-                pos1.x<=pos2.x+(size1.width/2)+(size2.width/2)+gutter &&
-                pos1.y>=pos2.y-(size1.height/2)-(size2.height/2)-gutter &&
-                pos1.y<=pos2.y+(size1.height/2)+(size2.height/2)+gutter) {
+            if(pos1.x>pos2.x-(size1.width/2)-(size2.width/2)-gutter &&
+                pos1.x<pos2.x+(size1.width/2)+(size2.width/2)+gutter &&
+                pos1.y>pos2.y-(size1.height/2)-(size2.height/2)-gutter &&
+                pos1.y<pos2.y+(size1.height/2)+(size2.height/2)+gutter) {
                 return true;
             }
         } else {
-            if(pos1.x+size1.width+gutter>=pos2.x &&
-                pos1.x<=pos2.x+size2.width+gutter &&
-                pos1.y+size1.height+gutter>=pos2.y &&
-                pos1.y<=pos2.y+size2.height+gutter) {
+            if(pos1.x+size1.width+gutter>pos2.x &&
+                pos1.x<pos2.x+size2.width+gutter &&
+                pos1.y+size1.height+gutter>pos2.y &&
+                pos1.y<pos2.y+size2.height+gutter) {
                 return true;
             }
         }
@@ -155,16 +156,16 @@ class Positions {
         }
         if(this.fromCenter) {
             return (this.exclude===false)||
-                (!(block.position.x+block.size.width/2>=this.exclude.start.x &&
-                    block.position.x-block.size.width/2<=this.exclude.end.x &&
-                    block.position.y+block.size.height/2>=this.exclude.start.y &&
-                    block.position.y-block.size.height/2<=this.exclude.end.y));
+                (!(block.position.x+block.size.width/2>this.exclude.start.x &&
+                    block.position.x-block.size.width/2<this.exclude.end.x &&
+                    block.position.y+block.size.height/2>this.exclude.start.y &&
+                    block.position.y-block.size.height/2<this.exclude.end.y));
         } else {
             return (this.exclude===false)||
-                (!(block.position.x+block.size.width>=this.exclude.start.x &&
-                    block.position.x<=this.exclude.end.x &&
-                    block.position.y+block.size.height>=this.exclude.start.y &&
-                    block.position.y<=this.exclude.end.y));
+                (!(block.position.x+block.size.width>this.exclude.start.x &&
+                    block.position.x<this.exclude.end.x &&
+                    block.position.y+block.size.height>this.exclude.start.y &&
+                    block.position.y<this.exclude.end.y));
         }
     }
 
@@ -190,4 +191,8 @@ class Positions {
     }
 }
 
-module.exports = Positions;
+module.exports.Pos = Pos;
+module.exports.Bounds = Bounds;
+module.exports.Zone = Zone;
+module.exports.Block = Block;
+module.exports.Positions = Positions;
