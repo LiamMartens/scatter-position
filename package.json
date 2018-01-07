@@ -1,0 +1,20 @@
+{
+  "name": "scatter-position",
+  "version": "1.0.0",
+  "description": "Script for generating non overlapping optionally guttered positions",
+  "main": "index.js",
+  "scripts": {
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiamMartens/scatter-position.git"
+  },
+  "keywords": [],
+  "author": "Liam Martens <hi@liammartens.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LiamMartens/scatter-position/issues"
+  },
+  "homepage": "https://github.com/LiamMartens/scatter-position#readme"
+}
