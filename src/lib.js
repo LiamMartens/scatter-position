@@ -149,7 +149,7 @@ class Positions {
     valid(block) {
         for(let i = 0; i < this.blocks.length; i++) {
             const b = this.blocks[i];
-            if(block.overlaps(b)) {
+            if(block.overlaps(b, this.gutter)) {
                 return false;
             }
         }
