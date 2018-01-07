@@ -153,10 +153,19 @@ class Positions {
                 return false;
             }
         }
-        return (this.exclude===false)||(!(block.position.x>=this.exclude.start.x &&
-            block.position.x<=this.exclude.end.x &&
-            block.position.y>=this.exclude.start.y &&
-            block.position.y<=this.exclude.end.y));
+        if(this.fromCenter) {
+            return (this.exclude===false)||
+                (!(block.position.x+block.size.width/2>=this.exclude.start.x &&
+                    block.position.x-block.size.width/2<=this.exclude.end.x &&
+                    block.position.y+block.size.height/2>=this.exclude.start.y &&
+                    block.position.y-block.size.height/2<=this.exclude.end.y));
+        } else {
+            return (this.exclude===false)||
+                (!(block.position.x+block.size.width>=this.exclude.start.x &&
+                    block.position.x<=this.exclude.end.x &&
+                    block.position.y+block.size.height>=this.exclude.start.y &&
+                    block.position.y<=this.exclude.end.y));
+        }
     }
 
     /**

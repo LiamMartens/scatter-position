@@ -16,10 +16,10 @@ test(t => {
         const block = blocks[i];
         for(let j = 0; j < blocks.length; j++) {
             if((i!=j) && (block.overlaps(blocks[j]) ||
-                (block.position.x>=generator.exclude.start.x &&
-                    block.position.x<=generator.exclude.end.x &&
-                    block.position.y>=generator.exclude.start.y &&
-                    block.position.y<=generator.exclude.end.y))) {
+                (block.position.x+block.size.width/2>=generator.exclude.start.x &&
+                    block.position.x-block.size.width/2<=generator.exclude.end.x &&
+                    block.position.y+block.size.height/2>=generator.exclude.start.y &&
+                    block.position.y-block.size.height/2<=generator.exclude.end.y))) {
                 t.fail();
                 return false;
             }

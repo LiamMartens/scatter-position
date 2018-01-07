@@ -1,6 +1,6 @@
 {
   "name": "scatter-position",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Script for generating non overlapping optionally guttered positions",
   "main": "src/lib.js",
   "scripts": {
