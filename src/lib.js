@@ -153,10 +153,10 @@ class Positions {
                 return false;
             }
         }
-        return !(block.position.x>=this.exclude.start.x &&
+        return (this.exclude===false)||(!(block.position.x>=this.exclude.start.x &&
             block.position.x<=this.exclude.end.x &&
             block.position.y>=this.exclude.start.y &&
-            block.position.y<=this.exclude.end.y);
+            block.position.y<=this.exclude.end.y));
     }
 
     /**
