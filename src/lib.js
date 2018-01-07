@@ -149,15 +149,14 @@ class Positions {
     valid(block) {
         for(let i = 0; i < this.blocks.length; i++) {
             const b = this.blocks[i];
-            if(block.overlaps(b) ||
-                (block.position.x>=this.exclude.start.x &&
-                    block.position.x<=this.exclude.end.x &&
-                    block.position.y>=this.exclude.start.y &&
-                    block.position.y<=this.exclude.end.y)) {
+            if(block.overlaps(b)) {
                 return false;
             }
         }
-        return true;
+        return !(block.position.x>=this.exclude.start.x &&
+            block.position.x<=this.exclude.end.x &&
+            block.position.y>=this.exclude.start.y &&
+            block.position.y<=this.exclude.end.y);
     }
 
     /**
