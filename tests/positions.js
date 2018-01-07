@@ -20,8 +20,6 @@ test(t => {
                     block.position.x<=generator.exclude.end.x &&
                     block.position.y>=generator.exclude.start.y &&
                     block.position.y<=generator.exclude.end.y))) {
-                console.log(block.position);
-                console.log(generator.exclude);
                 t.fail();
                 return false;
             }
